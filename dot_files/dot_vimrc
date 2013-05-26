@@ -1,0 +1,57 @@
+"set verbose
+"set showmode
+"set showmatch
+set ai
+"set leftright
+set ts=4
+"set shiftwidth=4
+"set filec=\	
+"set cedit=`
+set noruler
+"set wm=76
+
+set grepprg=global\ -t
+set grepformat=%m\TAB%f\TAB%l
+
+syntax on
+
+" add to build *.java by ant. To exec ant input on vim ":make"
+"set makeprg=ant\ -find\ build.xml
+"set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+"set dict=~tos/vimDict/j2se14.dict
+"set keywordprg=jman
+
+"map for gtags
+"map <C-]> :GtagsCursor<CR>
+"map <C-g> :Gozilla<CR>
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+map  :GtagsCursor<CR>
+map  :Gtags -r <CR>
+
+map <C-q> <C-w><C-w><C-w>q
+map <C-h> :Gtags -g <C-r><C-w><CR>
+"map <C-l> :Gtags -f %<CR>
+map <C-l> :Gtags <C-r><C-w><CR>
+map <C-k> :Gtags -r <C-r><C-w><CR>
+
+" 改行コードの自動認識
+set fileformats=unix,dos,mac
+" □とか○の文字があってもカーソル位置がずれないようにする
+if exists('&ambiwidth')
+  set ambiwidth=double
+endif
+
+"バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | %!xxd -r | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
+
+set encoding=utf-8
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
