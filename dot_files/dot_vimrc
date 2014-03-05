@@ -4,6 +4,7 @@
 set ai
 "set leftright
 set ts=4
+set list
 "set shiftwidth=4
 "set filec=\	
 "set cedit=`
