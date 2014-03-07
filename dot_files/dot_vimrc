@@ -4,6 +4,7 @@
 set ai
 "set leftright
 set ts=4
+"set expandtab	"auto tab->space replace
 set list
 "set shiftwidth=4
 "set filec=\	
