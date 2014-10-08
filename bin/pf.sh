@@ -7,7 +7,7 @@ PFSSHKEY=sshIdentKey
 SSH_PATH=/usr/bin
 BIN=/bin
 
-${SSH_PATH}/ssh-add ${SSH_PATH}
+${SSH_PATH}/ssh-add SSH_KEY
 trap "echo trapped\(INT\) at; date" INT
 trap "echo trapped\(TSTP\) at; date" TSTP
 
