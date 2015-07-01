@@ -102,5 +102,7 @@ set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp
 
 
 " for vim-outline
-nnoremap <silent> <Space>uo       : <C-u>Unite -no-quit -vertical -winwidth=30 outline<CR>
+"nnoremap <silent> <Space>uo       : <C-u>Unite -no-quit -vertical -winwidth=30 outline<CR>
 "nnoremap <silent> <Leader>o :<C-u>Unite -vertical -no-quit outline<CR>
+let g:unite_split_rule = 'botright'
+nnoremap <silent> <Space>ol       : <C-u>Unite -no-quit -winheight=5 outline<CR>
