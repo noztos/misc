@@ -10,7 +10,8 @@
 	staged = status -uno
 	logall = log --graph --all --decorate=short --date=short
 	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %C(cyan)%cn %Cred%d %Creset%s'
-	wdiff = diff --word-diff
+	diff = diff -M
+	wdiff = diff -M --word-diff
 	today = log --oneline --since='12 hour ago'
 	blame = blame -bc
 [push]
